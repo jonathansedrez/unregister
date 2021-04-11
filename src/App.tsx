@@ -1,13 +1,8 @@
 import './App.scss';
-import { Input } from './components';
+import { Admin } from './containers';
 
 function App() {
-  return (
-    <div className="App">
-      <p>Teste</p>
-      <Input />
-    </div>
-  );
+  return <Admin />;
 }
 
 export default App;
