@@ -3,13 +3,33 @@ import { Card, Input } from '../../components';
 
 import './justification.styles.scss';
 
+export type JustificationObj = {
+  value: string;
+  hasDescriptions: boolean;
+};
+
 export const Justification: React.FC = () => {
   const [justificationInput, setJustification] = useState('');
   const [hasDescription, setHasDescription] = useState(false);
 
   const handleSubmit = () => {
-    console.log('justificationInput', justificationInput);
-    console.log('hasDescription', hasDescription);
+    const justifications = localStorage.getItem('justifications');
+    let parsedJustifications: JustificationObj[] = [];
+
+    if (justifications) {
+      parsedJustifications = JSON.parse(justifications);
+    }
+
+    localStorage.setItem(
+      'justifications',
+      JSON.stringify([
+        ...parsedJustifications,
+        {
+          value: justificationInput,
+          hasDescription,
+        },
+      ])
+    );
   };
 
   return (
