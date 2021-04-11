@@ -5,7 +5,8 @@ import './justification.styles.scss';
 
 export type JustificationObj = {
   value: string;
-  hasDescriptions: boolean;
+  hasDescription: boolean;
+  description?: string;
 };
 
 export const Justification: React.FC = () => {
@@ -35,7 +36,7 @@ export const Justification: React.FC = () => {
   return (
     <Card>
       <p>justifiation</p>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(event) => event.preventDefault()}>
         <Input
           label="Justificativa"
           placeholder="dasda"

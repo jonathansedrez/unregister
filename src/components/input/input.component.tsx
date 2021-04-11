@@ -2,7 +2,7 @@ import { InputHTMLAttributes } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  value: string;
+  value?: string;
   maxLength?: number;
 }
 
@@ -12,7 +12,7 @@ export const Input: React.FC<InputProps> = (props) => {
     <div>
       {label && <p>label</p>}
       <input {...props} value={value} maxLength={maxLength} />
-      <p>{`${value.length}/${maxLength}`}</p>
+      <p>{`${value?.length || 0}/${maxLength}`}</p>
     </div>
   );
 };

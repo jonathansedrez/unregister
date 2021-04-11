@@ -5,7 +5,7 @@ import { useRadioContext } from './radio.hook';
 import { RadioContext } from './radio.context';
 
 const Option: React.FC<RadioOptionProps> = (props) => {
-  const { value, children, hasDescription = false } = props;
+  const { value, children } = props;
   const { currentValue, handleChange, name } = useContext(RadioContext);
   useRadioContext();
 
@@ -23,16 +23,15 @@ const Option: React.FC<RadioOptionProps> = (props) => {
         {value === currentValue ? <span>O</span> : <span>X</span>}
         {children}
       </div>
-      {hasDescription && <input />}
     </>
   );
 };
 
 export const Radio: React.FC<RadioProps> & RadioComposition = (props) => {
-  const { children, onChange, initialValue, name } = props;
-  const [currentValue, setCurrentValue] = useState(initialValue || '');
+  const { children, onChange, name } = props;
+  const [currentValue, setCurrentValue] = useState('');
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: any) => {
     setCurrentValue(value);
     onChange(value);
   };
