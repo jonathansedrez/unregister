@@ -34,7 +34,7 @@ export const Justification: React.FC = () => {
   };
 
   return (
-    <Card>
+    <Card hasShadow>
       <p>justifiation</p>
       <form onSubmit={(event) => event.preventDefault()}>
         <Input

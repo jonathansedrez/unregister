@@ -38,7 +38,7 @@ export const Form: React.FC = () => {
   };
 
   return (
-    <Card hasShadow>
+    <Card>
       <p>form</p>
       <form onSubmit={(event) => event.preventDefault()}>
         <Radio onChange={setSelectedJustification} name="justification">

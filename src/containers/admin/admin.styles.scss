@@ -2,4 +2,25 @@
 
 .admin {
   background-color: $background;
+  height: 100vh;
+  padding: 24px 38px;
+}
+
+.admin__navigation {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .admin__navigation-text {
+    font-size: 16px;
+    color: $dark-gray;
+    font-family: 'Roboto';
+    font-weight: 300;
+    margin: 0 8px;
+  }
+
+  .admin__navigation-text--focused {
+    color: $red;
+    font-weight: 500;
+  }
 }
