@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from 'react';
+import './input.styles.scss';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -9,10 +10,15 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input: React.FC<InputProps> = (props) => {
   const { value, label, maxLength = 150 } = props;
   return (
-    <div>
-      {label && <p>label</p>}
-      <input {...props} value={value} maxLength={maxLength} />
-      <p>{`${value?.length || 0}/${maxLength}`}</p>
+    <div className="input">
+      {label && <p className="input__label">Justificativa </p>}
+      <input
+        className="input__text"
+        {...props}
+        value={value}
+        maxLength={maxLength}
+      />
+      <p className="input__counter">{`${value?.length || 0}/${maxLength}`}</p>
     </div>
   );
 };

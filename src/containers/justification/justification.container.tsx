@@ -39,7 +39,7 @@ export const Justification: React.FC = () => {
       <form onSubmit={(event) => event.preventDefault()}>
         <Input
           label="Justificativa"
-          placeholder="dasda"
+          placeholder="Digite um motivo para fazer opt out"
           value={justificationInput}
           onChange={(event) => {
             setJustification(event.target.value);
