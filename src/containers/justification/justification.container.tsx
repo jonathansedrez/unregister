@@ -35,7 +35,7 @@ export const Justification: React.FC = () => {
 
   return (
     <Card hasShadow>
-      <p>justifiation</p>
+      <h1 className="justification__title">Adicionar nova justificativa</h1>
       <form onSubmit={(event) => event.preventDefault()}>
         <Input
           label="Justificativa"

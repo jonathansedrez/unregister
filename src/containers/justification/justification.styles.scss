@@ -1,2 +1,8 @@
-p {
+@import '../../layout/variables.scss';
+
+.justification__title {
+  font-size: 32px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: $darkest-gray;
 }
