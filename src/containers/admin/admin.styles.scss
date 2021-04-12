@@ -1,3 +1,5 @@
-p {
-  background-color: white;
+@import '../../layout/variables.scss';
+
+.admin {
+  background-color: $background;
 }

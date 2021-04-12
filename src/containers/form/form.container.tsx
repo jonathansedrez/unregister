@@ -8,7 +8,7 @@ export const Form: React.FC = () => {
   const [justifications, setJustifications] = useState<JustificationObj[]>([]);
   const [selectedJustification, setSelectedJustification] = useState('');
 
-  useEffect(() => {
+  const checkStorage = () => {
     const justificationsStorage = localStorage.getItem('justifications');
 
     if (justificationsStorage) {
@@ -17,7 +17,18 @@ export const Form: React.FC = () => {
       );
       setJustifications(parsedJustifications);
     }
+  };
+
+  useEffect(() => {
+    checkStorage();
   }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => checkStorage());
+    return () => {
+      window.removeEventListener('storage', () => checkStorage());
+    };
+  });
 
   const handleSubmit = () => {
     const justification = justifications.find(
