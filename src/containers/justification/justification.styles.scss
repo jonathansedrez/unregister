@@ -1,8 +1,29 @@
 @import '../../layout/variables.scss';
 
-.justification__title {
-  font-size: 32px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  color: $darkest-gray;
+.justification {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+
+  .justification__title {
+    font-size: 32px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: $darkest-gray;
+  }
+
+  .justification__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 190px;
+  }
+
+  .justification__checkbox {
+    margin-left: 8px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    color: $darkest-gray;
+  }
 }

@@ -1,7 +1,7 @@
 @import '../../layout/variables.scss';
 
 .input {
-  width: calc(100% - 4px);
+  width: 100%;
   font-family: 'Roboto';
 
   .input__label {
@@ -23,7 +23,7 @@
     &::placeholder {
       font-size: 14px;
       color: $mid-gray;
-      font-weight: 400;
+      font-weight: 300;
     }
   }
 

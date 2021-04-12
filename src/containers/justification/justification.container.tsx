@@ -35,30 +35,35 @@ export const Justification: React.FC = () => {
 
   return (
     <Card hasShadow>
-      <h1 className="justification__title">Adicionar nova justificativa</h1>
-      <form onSubmit={(event) => event.preventDefault()}>
-        <Input
-          label="Justificativa"
-          placeholder="Digite um motivo para fazer opt out"
-          value={justificationInput}
-          onChange={(event) => {
-            setJustification(event.target.value);
-          }}
-        />
-        <div>
-          <input
-            id="hasDescription"
-            name="hasDescription"
-            type="checkbox"
-            onChange={(e) => setHasDescription(e.target.checked)}
-            checked={hasDescription}
+      <div className="justification">
+        <h1 className="justification__title">Adicionar nova justificativa</h1>
+        <form
+          onSubmit={(event) => event.preventDefault()}
+          className="justification__form"
+        >
+          <Input
+            label="Justificativa"
+            placeholder="Digite um motivo para fazer opt out"
+            value={justificationInput}
+            onChange={(event) => {
+              setJustification(event.target.value);
+            }}
           />
-          <label htmlFor="hasDescription">
-            Permitir que o usuário informe uma observação.
-          </label>
-        </div>
-        <button onClick={handleSubmit}>Enviar</button>
-      </form>
+          <div>
+            <input
+              id="hasDescription"
+              name="hasDescription"
+              type="checkbox"
+              onChange={(e) => setHasDescription(e.target.checked)}
+              checked={hasDescription}
+            />
+            <label htmlFor="hasDescription" className="justification__checkbox">
+              Permitir que o usuário informe uma observação.
+            </label>
+          </div>
+          <button onClick={handleSubmit}>Enviar</button>
+        </form>
+      </div>
     </Card>
   );
 };
