@@ -1,2 +1,43 @@
-.form__text {
+@import '../../layout/variables.scss';
+
+.form {
+  display: flex;
+  justify-content: space-between;
+
+  .form__disclaimer {
+    width: calc(50% - 25px);
+  }
+
+  .form__inputs {
+    width: calc(50% - 25px);
+  }
+
+  .form__title {
+    font-family: 'Roboto';
+    font-weight: 700;
+    color: $dark-gray;
+    font-size: 30px;
+    margin-bottom: 36px;
+    margin-top: 52px;
+  }
+
+  .form__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-family: 'Roboto';
+    color: $darkest-gray;
+    font-size: 14px;
+    line-height: 22px;
+
+    p {
+      margin-top: 16px;
+    }
+
+    b {
+      font-weight: 700;
+      color: $dark-gray;
+    }
+  }
 }

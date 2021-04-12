@@ -1,6 +1,8 @@
 import { useEffect, useState, Fragment } from 'react';
 import { Card, Input, Radio } from '../../components';
 import { JustificationObj } from '../justification/justification.container';
+import companyLogo from '../../assets/company-logo.png';
+import { ReactComponent as CompanyLogoIcon } from '../../assets/company-logo.svg';
 
 import './form.styles.scss';
 
@@ -39,35 +41,55 @@ export const Form: React.FC = () => {
 
   return (
     <Card>
-      <p>form</p>
-      <form onSubmit={(event) => event.preventDefault()}>
-        <Radio onChange={setSelectedJustification} name="justification">
-          {justifications.map(({ value, hasDescription }, index) => {
-            return (
-              <Radio.Option key={value} value={value}>
-                <Fragment>
-                  <p>{value}</p>
-                  {hasDescription && (
-                    <Input
-                      placeholder="Informe o motivo"
-                      value={justifications[index].description || ''}
-                      onChange={(event) => {
-                        let justifiations = [...justifications];
-                        justifiations[index] = {
-                          ...justifiations[index],
-                          description: event.target.value,
-                        };
-                        setJustifications(justifiations);
-                      }}
-                    />
-                  )}
-                </Fragment>
-              </Radio.Option>
-            );
-          })}
-        </Radio>
-        <button onClick={handleSubmit}>Enviar</button>
-      </form>
+      <div className="form">
+        <div className="form__disclaimer">
+          <CompanyLogoIcon />
+          <h1 className="form__title">Nós sentiremos sua falta</h1>
+          <div className="form__text">
+            <p>
+              Lamentamos ver você indo embora. <br />
+              Para que possamos
+              <b>melhorar nossa comunicação</b>, gostaríamos de
+              <b>saber os motivos</b> que o levaram a tomar essa decisão. O
+              questionário é opcional.
+            </p>
+            <p>
+              <b>O questionário é opcional.</b>
+            </p>
+          </div>
+        </div>
+        <form
+          onSubmit={(event) => event.preventDefault()}
+          className="form__inputs"
+        >
+          <Radio onChange={setSelectedJustification} name="justification">
+            {justifications.map(({ value, hasDescription }, index) => {
+              return (
+                <Radio.Option key={value} value={value}>
+                  <Fragment>
+                    <p>{value}</p>
+                    {hasDescription && (
+                      <Input
+                        placeholder="Informe o motivo"
+                        value={justifications[index].description || ''}
+                        onChange={(event) => {
+                          let justifiations = [...justifications];
+                          justifiations[index] = {
+                            ...justifiations[index],
+                            description: event.target.value,
+                          };
+                          setJustifications(justifiations);
+                        }}
+                      />
+                    )}
+                  </Fragment>
+                </Radio.Option>
+              );
+            })}
+          </Radio>
+          <button onClick={handleSubmit}>Enviar</button>
+        </form>
+      </div>
     </Card>
   );
 };
