@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, Input } from '../../components';
+import { Card, Input, Button } from '../../components';
 
 import './justification.styles.scss';
 
@@ -61,7 +61,15 @@ export const Justification: React.FC = () => {
               Permitir que o usuário informe uma observação.
             </label>
           </div>
-          <button onClick={handleSubmit}>Enviar</button>
+
+          <span className="justification__button">
+            <Button
+              onClick={handleSubmit}
+              disabled={!justificationInput.length}
+            >
+              Salvar alterações
+            </Button>
+          </span>
         </form>
       </div>
     </Card>

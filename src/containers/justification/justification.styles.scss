@@ -26,4 +26,8 @@
     font-weight: 400;
     color: $darkest-gray;
   }
+
+  .justification__button {
+    align-self: flex-end !important;
+  }
 }

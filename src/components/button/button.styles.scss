@@ -1,0 +1,20 @@
+@import '../../layout/variables.scss';
+
+.button {
+  border: none;
+  border-radius: 50px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  width: 210px;
+  height: 33px;
+  color: $white;
+  background: $blue;
+  border: 1px solid $blue;
+  transition: 0.3s;
+
+  &:disabled {
+    color: $mid-gray;
+    background: $white;
+    border: 1px solid $mid-gray;
+  }
+}
