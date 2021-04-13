@@ -1,36 +1,27 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { v4 as uuid } from 'uuid';
+
 import { Card, Input, Button } from '../../components';
+import { AdminContext } from '../admin/admin.context';
+import './addJustification.styles.scss';
 
-import './justification.styles.scss';
-
-export type JustificationObj = {
-  value: string;
-  hasDescription: boolean;
-  description?: string;
-};
-
-export const Justification: React.FC = () => {
+export const AddJustification: React.FC = () => {
   const [justificationInput, setJustification] = useState('');
   const [hasDescription, setHasDescription] = useState(false);
 
+  const { setJustifications } = useContext(AdminContext);
+
   const handleSubmit = () => {
-    const justifications = localStorage.getItem('justifications');
-    let parsedJustifications: JustificationObj[] = [];
-
-    if (justifications) {
-      parsedJustifications = JSON.parse(justifications);
-    }
-
-    localStorage.setItem(
-      'justifications',
-      JSON.stringify([
-        ...parsedJustifications,
-        {
-          value: justificationInput,
-          hasDescription,
-        },
-      ])
-    );
+    setJustifications((previous) => [
+      ...previous,
+      {
+        id: uuid(),
+        value: justificationInput,
+        hasDescription,
+      },
+    ]);
+    setJustification('');
+    setHasDescription(false);
   };
 
   return (
@@ -54,7 +45,7 @@ export const Justification: React.FC = () => {
               id="hasDescription"
               name="hasDescription"
               type="checkbox"
-              onChange={(e) => setHasDescription(e.target.checked)}
+              onChange={(event) => setHasDescription(event.target.checked)}
               checked={hasDescription}
             />
             <label htmlFor="hasDescription" className="justification__checkbox">

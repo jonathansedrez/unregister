@@ -4,7 +4,7 @@ export type RadioProps = {
 };
 
 export type RadioOptionProps = {
-  value: string;
+  id: string;
 };
 
 export interface RadioComposition {

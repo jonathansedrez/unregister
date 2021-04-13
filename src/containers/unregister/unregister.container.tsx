@@ -1,40 +1,18 @@
-import { useEffect, useState, Fragment } from 'react';
+import { useState, Fragment, useContext } from 'react';
 
 import { Card, Input, Radio, Button } from '../../components';
-import { JustificationObj } from '../justification/justification.container';
 import { ReactComponent as CompanyLogoIcon } from '../../assets/company-logo.svg';
+import { AdminContext } from '../admin/admin.context';
+import './unregister.styles.scss';
 
-import './form.styles.scss';
-
-export const Form: React.FC = () => {
-  const [justifications, setJustifications] = useState<JustificationObj[]>([]);
+export const Unregister: React.FC = () => {
   const [selectedJustification, setSelectedJustification] = useState('');
 
-  const checkStorage = () => {
-    const justificationsStorage = localStorage.getItem('justifications');
-
-    if (justificationsStorage) {
-      const parsedJustifications: JustificationObj[] = JSON.parse(
-        justificationsStorage
-      );
-      setJustifications(parsedJustifications);
-    }
-  };
-
-  useEffect(() => {
-    checkStorage();
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('storage', () => checkStorage());
-    return () => {
-      window.removeEventListener('storage', () => checkStorage());
-    };
-  });
+  const { justifications, setJustifications } = useContext(AdminContext);
 
   const handleSubmit = () => {
     const justification = justifications.find(
-      (justification) => justification.value === selectedJustification
+      (justification) => justification.id === selectedJustification
     );
     console.log('selecionado:', justification);
   };
@@ -47,11 +25,9 @@ export const Form: React.FC = () => {
           <h1 className="form__title">Nós sentiremos sua falta</h1>
           <div className="form__text">
             <p>
-              Lamentamos ver você indo embora. <br />
-              Para que possamos
-              <b>melhorar nossa comunicação</b>, gostaríamos de
-              <b>saber os motivos</b> que o levaram a tomar essa decisão. O
-              questionário é opcional.
+              Lamentamos ver você indo embora. <br /> Para que possamos
+              <b> melhorar nossa comunicação</b>, gostaríamos de
+              <b> saber os motivos</b> que o levaram a tomar essa decisão.
             </p>
             <p>
               <b>O questionário é opcional.</b>
@@ -63,9 +39,9 @@ export const Form: React.FC = () => {
           className="form__inputs"
         >
           <Radio onChange={setSelectedJustification} name="justification">
-            {justifications.map(({ value, hasDescription }, index) => {
+            {justifications.map(({ id, value, hasDescription }, index) => {
               return (
-                <Radio.Option key={value} value={value}>
+                <Radio.Option key={id} id={id}>
                   <Fragment>
                     <p>{value}</p>
                     {hasDescription && (
@@ -73,12 +49,13 @@ export const Form: React.FC = () => {
                         placeholder="Informe o motivo"
                         value={justifications[index].description || ''}
                         onChange={(event) => {
-                          let justifiations = [...justifications];
-                          justifiations[index] = {
-                            ...justifiations[index],
+                          let just = [...justifications];
+                          console.log(just[index]);
+                          just[index] = {
+                            ...just[index],
                             description: event.target.value,
                           };
-                          setJustifications(justifiations);
+                          setJustifications(just);
                         }}
                       />
                     )}

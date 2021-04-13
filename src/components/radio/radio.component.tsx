@@ -7,22 +7,22 @@ import { RadioContext } from './radio.context';
 import './radio.styles.scss';
 
 const Option: React.FC<RadioOptionProps> = (props) => {
-  const { value, children } = props;
+  const { id, children } = props;
   const { currentValue, handleChange, name } = useContext(RadioContext);
   useRadioContext();
 
   return (
-    <div onClick={() => handleChange(value)} className="radio">
+    <div onClick={() => handleChange(id)} className="radio">
       <input
         type="radio"
         readOnly
         hidden
-        id={value}
+        id={id}
         name={name}
-        checked={value === currentValue}
+        checked={id === currentValue}
       />
       <div className="radio__box">
-        {value === currentValue && <span className="radio__box--checked" />}
+        {id === currentValue && <span className="radio__box--checked" />}
       </div>
       <div className="radio__wrapper">{children}</div>
     </div>
@@ -33,7 +33,7 @@ export const Radio: React.FC<RadioProps> & RadioComposition = (props) => {
   const { children, onChange, name } = props;
   const [currentValue, setCurrentValue] = useState('');
 
-  const handleChange = (value: any) => {
+  const handleChange = (value: string) => {
     setCurrentValue(value);
     onChange(value);
   };
