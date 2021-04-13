@@ -1,7 +1,7 @@
 import { useEffect, useState, Fragment } from 'react';
-import { Card, Input, Radio } from '../../components';
+
+import { Card, Input, Radio, Button } from '../../components';
 import { JustificationObj } from '../justification/justification.container';
-import companyLogo from '../../assets/company-logo.png';
 import { ReactComponent as CompanyLogoIcon } from '../../assets/company-logo.svg';
 
 import './form.styles.scss';
@@ -87,7 +87,7 @@ export const Form: React.FC = () => {
               );
             })}
           </Radio>
-          <button onClick={handleSubmit}>Enviar</button>
+          <Button onClick={handleSubmit}>Descadastrar</Button>
         </form>
       </div>
     </Card>
