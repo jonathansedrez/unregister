@@ -6,4 +6,7 @@ type AdminContextActions = {
   setJustifications: Dispatch<SetStateAction<JustificationType[]>>;
 };
 
-export const AdminContext = createContext<AdminContextActions>(undefined!);
+export const AdminContext = createContext<AdminContextActions>({
+  justifications: [],
+  setJustifications: () => {},
+});

@@ -33,6 +33,7 @@ export const AddJustification: React.FC = () => {
           className="justification__form"
         >
           <Input
+            data-testid="justification-input"
             label="Justificativa"
             placeholder="Digite um motivo para fazer opt out"
             value={justificationInput}

@@ -18,7 +18,9 @@ export const Input: React.FC<InputProps> = (props) => {
         value={value}
         maxLength={maxLength}
       />
-      <p className="input__counter">{`${value?.length || 0}/${maxLength}`}</p>
+      <p className="input__counter" data-testid="input-counter">{`${
+        value?.length || 0
+      }/${maxLength}`}</p>
     </div>
   );
 };
