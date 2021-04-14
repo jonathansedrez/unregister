@@ -1,18 +1,26 @@
 @import '../../layout/variables.scss';
 
-.form {
+.unregister {
   display: flex;
   justify-content: space-between;
 
-  .form__disclaimer {
+  .unregister__disclaimer {
     width: calc(50% - 25px);
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
   }
 
-  .form__inputs {
+  .unregister__inputs {
     width: calc(50% - 25px);
+
+    @media (max-width: 800px) {
+      width: 100%;
+    }
   }
 
-  .form__title {
+  .unregister__title {
     font-family: 'Roboto';
     font-weight: 700;
     color: $dark-gray;
@@ -21,23 +29,50 @@
     margin-top: 52px;
   }
 
-  .form__text {
+  .unregister__subtitle {
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: $darkest-gray;
+    font-size: 19px;
+    margin-bottom: 36px;
+    margin-top: 24px;
+  }
+
+  .unregister__text-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
 
+  .unregister__radio-text {
     font-family: 'Roboto';
+    font-weight: 100;
     color: $darkest-gray;
     font-size: 14px;
-    line-height: 22px;
+  }
 
-    p {
-      margin-top: 16px;
-    }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-    b {
-      font-weight: 700;
-      color: $dark-gray;
-    }
+.unregister__text {
+  font-family: 'Roboto';
+  color: $darkest-gray;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 16px 0;
+
+  b {
+    font-weight: 700;
+    color: $dark-gray;
+  }
+
+  i {
+    font-weight: 500;
+    color: $blue;
+    text-decoration: underline;
+    font-style: normal;
   }
 }
