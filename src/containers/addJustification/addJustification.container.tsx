@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { Card, Input, Button } from '../../components';
+import { Card, Input, Button, Checkbox } from '../../components';
 import { AdminContext } from '../admin/admin.context';
 import './addJustification.styles.scss';
 
@@ -40,18 +40,11 @@ export const AddJustification: React.FC = () => {
               setJustification(event.target.value);
             }}
           />
-          <div>
-            <input
-              id="hasDescription"
-              name="hasDescription"
-              type="checkbox"
-              onChange={(event) => setHasDescription(event.target.checked)}
-              checked={hasDescription}
-            />
-            <label htmlFor="hasDescription" className="justification__checkbox">
-              Permitir que o usuário informe uma observação.
-            </label>
-          </div>
+          <Checkbox
+            value="Permitir que o usuário informe uma observação."
+            checked={hasDescription}
+            onClick={(value) => setHasDescription(value)}
+          />
 
           <span className="justification__button">
             <Button

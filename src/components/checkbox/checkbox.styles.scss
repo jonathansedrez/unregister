@@ -1,0 +1,33 @@
+@import '../../layout/variables.scss';
+
+.checkbox {
+  display: flex;
+  font-family: 'Roboto';
+  margin: 32px 0;
+}
+
+.checkbox__box {
+  width: 12px;
+  height: 12px;
+  border: 1px solid $mid-gray;
+  background: $white;
+  position: relative;
+
+  .checkbox__box--checked {
+    width: 12px;
+    height: 12px;
+    background: $blue;
+    position: absolute;
+  }
+}
+
+.checkbox__wrapper {
+  margin-left: 12px;
+  width: 100%;
+
+  p {
+    color: $darkest-gray;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
