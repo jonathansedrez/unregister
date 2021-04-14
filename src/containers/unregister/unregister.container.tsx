@@ -46,18 +46,20 @@ export const Unregister: React.FC = () => {
                     <Fragment>
                       <p className="unregister__radio-text">{value}</p>
                       {hasDescription && (
-                        <Input
-                          placeholder="Informe o motivo"
-                          value={justifications[index].description || ''}
-                          onChange={(event) => {
-                            let just = [...justifications];
-                            just[index] = {
-                              ...just[index],
-                              description: event.target.value,
-                            };
-                            setJustifications(just);
-                          }}
-                        />
+                        <div className="unregister__radio-input">
+                          <Input
+                            placeholder="Informe o motivo"
+                            value={justifications[index].description || ''}
+                            onChange={(event) => {
+                              let just = [...justifications];
+                              just[index] = {
+                                ...just[index],
+                                description: event.target.value,
+                              };
+                              setJustifications(just);
+                            }}
+                          />
+                        </div>
                       )}
                     </Fragment>
                   </Radio.Option>
