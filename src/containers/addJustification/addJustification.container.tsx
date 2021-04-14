@@ -50,6 +50,7 @@ export const AddJustification: React.FC = () => {
             <Button
               onClick={handleSubmit}
               disabled={!justificationInput.length}
+              width={210}
             >
               Salvar alterações
             </Button>

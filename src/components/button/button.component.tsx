@@ -1,13 +1,14 @@
 import { ButtonHTMLAttributes } from 'react';
 import './button.styles.scss';
 
-export const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (
-  props
-) => {
-  const { children } = props;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  width?: number;
+}
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { children, width = 120 } = props;
 
   return (
-    <button {...props} className="button">
+    <button {...props} className="button" style={{ width: `${width}px` }}>
       {children}
     </button>
   );
